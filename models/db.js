@@ -12,7 +12,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   },
 });
 
-testConnection = async () => {
+const testConnection = async () => {
   try {
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
@@ -20,5 +20,7 @@ testConnection = async () => {
     console.error("Unable to connect to the database:", error);
   }
 };
+
 testConnection();
+
 module.exports = sequelize;

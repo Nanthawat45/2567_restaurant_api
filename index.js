@@ -6,14 +6,15 @@ const restaurantRouter = require("./routers/restaurant.router");
 
 //use middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 //use router
-app.use("/api/v1/restuarnts", restaurantRouter);
+app.use("/api/v1/restaurants", restaurantRouter);
 
-app.get('/', (req,res) => {
-    res.send( '<h1>Hello Restaurant API</h1>')
+app.get('/', (req, res) => {
+    res.send('<h1>Hello Restaurant API</h1>');
 });
-app.listen(3000,()=>{
-    console.log("Listening to http://localhost:"+PORT);
-})
+
+app.listen(PORT, () => {
+    console.log("Listening to http://localhost:" + PORT);
+});

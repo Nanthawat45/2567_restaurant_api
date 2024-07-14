@@ -1,4 +1,4 @@
-const { DataType, DataTypes } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("./db");
 
 const Restaurant = sequelize.define("restaurant", {
@@ -15,7 +15,7 @@ const Restaurant = sequelize.define("restaurant", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  ImageUrl: {
+  imageUrl: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -28,4 +28,5 @@ Restaurant.sync({ force: true })
   .catch((error) => {
     console.log("Error creating table:", error);
   });
+
 module.exports = Restaurant;
