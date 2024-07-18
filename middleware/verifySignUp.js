@@ -1,6 +1,6 @@
 const User = require("../models/user.model");
 const Role = require("../models/role.model");
-const { where } = require("sequelize");
+const { Op } = require("sequelize");
 
 checkDuplicateUsernameOrEmail= async (req, res, next) => {
     //chek username

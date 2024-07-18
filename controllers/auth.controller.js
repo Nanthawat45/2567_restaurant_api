@@ -20,7 +20,7 @@ exports.signup = async (req, res) => {
   const newUser = {
     username: username,
     email: email,
-    password: bcrypt.hashSync(password, 123456789),
+    password: bcrypt.hashSync(password, 8),
   };
 
   //Save user in the database

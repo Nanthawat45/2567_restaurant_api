@@ -1,10 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const authRouter = require("../controllers/auth.controller");
+const authController = require("../controllers/auth.controller");
+const { verifySignUp} = require("../middleware");
 
+router.use((req, res, next) =>{
+    res.header(
+        "Access-Control-Allow-Headers",
+        "x-acces-token, origin, Content-Type"
+    )
+    next();
+});
+router.post(
+    "/signup",
+    [verifySignUp.checkDuplicateUsernameOrEmail, verifySignUp.checkRolesExisted],
+    authController.signup
+);
 //create a restaurant
 //POST http://localhost:5000/api/v1/signup/
-router.post("/signup", authRouter.signup);
+// router.post("/signup", authRouter.signup);
 router.post("/signup", authRouter.signin);
 
 module.exports = router;
