@@ -18,6 +18,6 @@ router.post(
 //create a restaurant
 //POST http://localhost:5000/api/v1/signup/
 // router.post("/signup", authRouter.signup);
-router.post("/signup", authRouter.signin);
+router.post("/signin", authController.signin);
 
 module.exports = router;

@@ -29,7 +29,7 @@ exports.signup = async (req, res) => {
       if (req.body.roles) {
         Role.findAll({
           where: {
-            name: { [Op.or]: body.roles },
+            name: { [Op.or]:  req.body.roles },
           },
         }).then((roles) => {
           user.setRoles(roles).then(() => {
@@ -56,8 +56,6 @@ exports.signup = async (req, res) => {
     });
 };
 
-//Register a new user
-exports.singnup = async (req, res) => {};
 
 //Signin
 exports.signin = async (req, res) => {

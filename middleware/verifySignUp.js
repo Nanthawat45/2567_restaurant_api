@@ -29,14 +29,14 @@ checkDuplicateUsernameOrEmail= async (req, res, next) => {
 };
 
 //Check roles are valid
-chekRolesExisted = async (req, res, next)=>{
+checkRolesExisted = async (req, res, next)=>{
     if(req.body.roles){
         Role.findAll({
             where:{
                 name: { [Op.or]: req.body.roles },
             },
         }).then((roles)=> {
-            if(roles.length !== req.roles.length){
+            if(roles.length != req.body.roles.length){
             res.status(400).send({ message: "Failed! Role does not exist."});
             return;
         }
