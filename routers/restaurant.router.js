@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const restaurantController = require("../controllers/restaurant.controller");
-const { authJwt } = require("../middleware");
+const { authJwt } = require("../middlewares");
 
 //create a restaurant
 //POST http://localhost:5000/api/v1/restaurants/
@@ -18,14 +18,14 @@ router.get("/", restaurantController.getAll);
 router.get("/:id", [authJwt.verifyToken], restaurantController.getById);
 
 //update a retaurant
-router.get(
+router.put(
   "/:id",
   [authJwt.verifyToken, authJwt.isAdminOrMod],
   restaurantController.update
 );
 
 //delete a restaurant
-router.get(
+router.delete(
   "/:id",
   [authJwt.verifyToken, authJwt.isAdmin],
   restaurantController.delete
