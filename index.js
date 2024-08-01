@@ -6,6 +6,11 @@ const restaurantRouter = require("./routers/restaurant.router");
 const authRouter = require("./routers/auth.routers");
 const db = require("./models/")
 const role = db.Role;
+const cor = require("cors");
+
+const corsOption = {
+    origin: "http://localhost:5173",
+};
 
 
 //Dev mode
@@ -20,6 +25,7 @@ const initRole = () => {
     role.create({ id: 3, name: "admin" });
 }
 //use middleware
+app.use(cors(corsOption));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
