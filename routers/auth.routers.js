@@ -5,9 +5,9 @@ const { verifySignUp} = require("../middleware");
 
 router.use((req, res, next) =>{
     res.header(
-        "Access-Control-Allow-Headers",
-        "x-acces-token, origin, Content-Type"
-    )
+      "Access-Control-Allow-Headers",
+      "x-acces-token, origin, Content-Type, Accept"
+    );
     next();
 });
 router.post(

@@ -29,7 +29,7 @@ exports.signup = async (req, res) => {
       if (req.body.roles) {
         Role.findAll({
           where: {
-            name: { [Op.or]:  req.body.roles },
+            name: { [Op.or]: req.body.roles },
           },
         }).then((roles) => {
           user.setRoles(roles).then(() => {
@@ -45,7 +45,7 @@ exports.signup = async (req, res) => {
             message: "User registered successfully!",
           });
         });
-      }
+      };
     })
     .catch((error) => {
       res.status(500).send({
@@ -55,7 +55,6 @@ exports.signup = async (req, res) => {
       });
     });
 };
-
 
 //Signin
 exports.signin = async (req, res) => {

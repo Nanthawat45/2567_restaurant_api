@@ -6,7 +6,7 @@ const restaurantRouter = require("./routers/restaurant.router");
 const authRouter = require("./routers/auth.routers");
 const db = require("./models/")
 const role = db.Role;
-const cor = require("cors");
+const cors = require("cors");
 
 const corsOption = {
     origin: "http://localhost:5173",

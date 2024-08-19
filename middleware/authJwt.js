@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const config = require("../config/auto.consfig");
+const config = require("../config/auth.consfig");
 const db = require("../models");
 const User = db.User;
 
@@ -40,7 +40,7 @@ isAdmin = (req,res,next) =>{
     });
 };
 //isMod
-isAdminOrMod = (req, res, next) => {
+isMod = (req, res, next) => {
   User.findByPk(req.userId).then((user) => {
     user.getRoles().then((roles) => {
       for (let i = 0; i < roles.length; i++) {

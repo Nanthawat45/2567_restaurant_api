@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const restaurantController = require("../controllers/restaurant.controller");
-const { authJwt } = require("../middlewares");
+const { authJwt } = require("../middleware");
 
 //create a restaurant
 //POST http://localhost:5000/api/v1/restaurants/
