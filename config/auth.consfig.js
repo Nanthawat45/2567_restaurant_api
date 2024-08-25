@@ -1,3 +1,3 @@
 module.exports={
-    "secret":"worahet-secret-key"
+    secret:"worahet-secret-key",
 }

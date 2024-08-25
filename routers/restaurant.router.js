@@ -30,4 +30,5 @@ router.delete(
   [authJwt.verifyToken, authJwt.isAdmin],
   restaurantController.delete
 );
+
 module.exports = router;
