@@ -16,7 +16,8 @@ router.post(
     authController.signup
 );
 //create a restaurant
-//POST http://localhost:5000/api/v1/signup/
+//POST http://localhost:5000/api/v1/auth/signup
+//POST http://localhost:5000/api/v1/auth/signin
 // router.post("/signup", authRouter.signup);
 router.post("/signin", authController.signin);
 

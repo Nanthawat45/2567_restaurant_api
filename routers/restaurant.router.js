@@ -4,7 +4,7 @@ const restaurantController = require("../controllers/restaurant.controller");
 const { authJwt } = require("../middleware");
 
 //create a restaurant
-//POST http://localhost:5000/api/v1/restaurants/
+//POST http://localhost:5000/api/v1/restaurants
 router.post(
   "/",
   [authJwt.verifyToken, authJwt.isAdminOrMod],

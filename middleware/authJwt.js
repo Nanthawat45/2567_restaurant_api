@@ -28,7 +28,8 @@ isAdmin = (req,res,next) =>{
     User.findByPk(req.userId).then((user)=>{ 
         user.getRoles().then(roles=>{
                 for(let i = 0; i < roles.length; i++){
-                    if(roles[i].rolename === "admin"){
+                  //roles[i].name เนอะไม่ใช่ .role ไปดูตัวแปรที่ตั้งในไฟล์ role.model ด้วย!
+                    if(roles[i].name === "admin"){
                         next();
                         return;
                     }
@@ -44,7 +45,7 @@ isMod = (req, res, next) => {
   User.findByPk(req.userId).then((user) => {
     user.getRoles().then((roles) => {
       for (let i = 0; i < roles.length; i++) {
-        if (roles[i].rolename === "moderator") {
+        if (roles[i].name === "moderator") {
           next();
           return;
         }
@@ -61,17 +62,20 @@ isMod = (req, res, next) => {
 isAdminOrMod = (req, res, next) => {
   User.findByPk(req.userId).then((user) => {
     user.getRoles().then((roles) => {
+      
+      
       for (let i = 0; i < roles.length; i++) {
         if (
-            roles[i].rolename === "moderator" || 
-            roles[i].rolename === "admin"
+          
+            roles[i].name === "moderator" || 
+            roles[i].name === "admin"
         ) {
           next();
           return;
         }
       }
      res.status(401).send({ 
-        message: "Unauthorized access, require Moderator Role!",
+        message: "Unauthorized access, require Moderator OR admin Role!",
      });
     });
   });

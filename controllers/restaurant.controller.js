@@ -6,7 +6,7 @@ exports.create = async (req, res) => {
 
   //Validate Data
   if (!name || !type || !imageUrl) {
-    res.status(400).send({
+    return res.status(400).send({
       message: "Name, Type or ImageUrl can not be empty!",
     });
   }
